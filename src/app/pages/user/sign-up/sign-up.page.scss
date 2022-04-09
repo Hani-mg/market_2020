@@ -1,0 +1,27 @@
+.section {
+    padding:10px;
+    background-color:var(--ion-color-dark-contrast);
+    margin-bottom:15px;
+    margin-top:15px;
+}
+.presentation ion-item ion-label {
+    font-size:20px !important;
+}
+
+.term{
+    font-size:10px !important;
+}
+.big-heading{
+    font-weight: bolder;
+    text-align: center;
+   
+}
+.div-button{
+    padding:10px;
+}
+
+
+ion-button{
+    margin-top:10px;
+    margin-bottom:10px;
+}

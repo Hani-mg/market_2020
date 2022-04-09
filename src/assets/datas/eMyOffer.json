@@ -1,0 +1,44 @@
+[
+        {
+            "idProduct":229,
+            "productName":"Clakets beige",
+            "imgUrlList": ["https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_180,w_350/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f4f72e8bc074/1599585655795.jpg"],
+            "idCategory":4,
+            "categoryName":"Adolescent",
+            "price":10,
+            "idTown":3,
+            "townName":"Toulouse",
+            "like" : true,
+            "date":"2018-07-17 10:22:18",
+            "status":0,
+            "favNumber":12
+        },
+        {
+            "idProduct":101,
+            "productName":"Tour de lit mickey",
+            "imgUrlList": ["https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_180,w_350/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f06e94028fb8/1594288424496.jpg"],
+            "idCategory":7,
+            "categoryName":"Chambre enfant",
+            "price":15,
+            "idTown":4,
+            "townName":"Le grand-Quevilly",
+            "like" : false,
+            "date":"2020-07-17 10:22:18",
+            "status":1,
+            "favNumber":1
+        },
+        {
+            "idProduct":102,
+            "productName":"Carrés de mousseline",
+            "imgUrlList": ["https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_180,w_350/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f0ec10f0918e/1594802443777.jpg"],
+            "idCategory":7,
+            "categoryName":"Chambre enfant",
+            "price":8,
+            "idTown":4,
+            "townName":"Le grand-Quevilly",
+            "like" : false,
+            "date":"2020-11-17 10:22:18",
+            "status":2,
+            "favNumber":2
+        }
+]

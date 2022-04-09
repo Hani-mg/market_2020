@@ -1,0 +1,68 @@
+<ion-content padding>
+
+    <!-- <ion-list>
+        <ion-item>
+            <ion-avatar slot="start"></ion-avatar>
+          <ion-label>Pokémon Yellow</ion-label>
+        </ion-item>
+        
+      </ion-list> -->
+
+      <ion-list lines="none">
+          <ion-item *ngFor="let type of types" button="true" [routerLink]="['/tabs/sell',type.idType]" (click)="ClosePopover()">
+            <div class="avatar {{type.color}}"  slot="start"  ></div>
+          <ion-label translate> {{type.typeName}}</ion-label>
+        </ion-item>
+          <!-- <ion-item button="true" [routerLink]="['/tabs/sell',1]" (click)="ClosePopover()">
+              <div class="avatar sell" slot="start"  ></div>
+            <ion-label translate> Vendre</ion-label>
+          </ion-item>
+          <ion-item button="true"  [routerLink]="['/tabs/sell',3]" (click)="ClosePopover()">
+              <div class="avatar rent" slot="start" ></div>
+            <ion-label translate>Louer</ion-label>
+          </ion-item>
+          <ion-item button="true"  [routerLink]="['/tabs/sell',2]" (click)="ClosePopover()">
+              <div class="avatar give" slot="start"></div>
+            <ion-label translate>Donner</ion-label>
+          </ion-item>
+          <ion-item button="true"  [routerLink]="['/tabs/sell',4]" (click)="ClosePopover()">
+              <div class="avatar exchange" slot="start"></div>
+            <ion-label translate>Echanger</ion-label>
+          </ion-item>
+          <ion-item button="true"  [routerLink]="['/tabs/sell',5]" (click)="ClosePopover()">
+            <div class="avatar humanitarianAction" slot="start"></div>
+          <ion-label translate>Action humanitaire</ion-label>
+        </ion-item> -->
+      </ion-list>
+
+      <!-- <ion-grid >
+          <ion-row >
+            <ion-col size="6">
+                <div class="filter sell" button="true" >
+                  <p class="filter-type" translate>Vendez</p>                    
+                </div>
+            </ion-col>
+            <ion-col size="6" >
+                <div class="filter give" button="true">
+                  <p class="filter-type" translate>Donnez</p>
+                </div>
+            </ion-col>
+          </ion-row>
+          <ion-row >
+            <ion-col size="6" >
+              <div class="filter rent" button="true">
+                <p class="filter-type" translate>Louez</p>
+              </div>
+            </ion-col>
+            <ion-col size="6"  >
+              <div class="filter exchange" button="true">
+                  <p class="filter-type" translate>Echangez</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid> -->
+  <!-- <ion-grid>
+    <ion-row><ion-col>This is an ionic popover example.</ion-col></ion-row>
+    <ion-row><ion-col><ion-button color="success" expand="block" (click)="ClosePopover()">Ok</ion-button></ion-col></ion-row>
+  </ion-grid>  -->
+</ion-content> 

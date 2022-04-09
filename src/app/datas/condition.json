@@ -1,0 +1,30 @@
+[
+
+    {
+        "id":1,
+        "name":"New with tags",
+        "desc":"Never worn, tags attached"
+    },
+    {
+        "id":2,
+        "name":"New",
+        "desc":"Not worn, but no tags"
+    },
+    {
+        "id":3,
+        "name":"Very good",
+        "desc":"Worn, but still looks great"
+    },
+    {
+        "id":5,
+        "name":"Good",
+        "desc":"Some flaws, all visible in pics"
+    },
+    {
+        "id":6,
+        "name":"Satisfactory",
+        "desc":"Some flaws, which are noted in the listing and visible in pictures"
+    }
+    
+
+]

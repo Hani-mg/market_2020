@@ -1,0 +1,47 @@
+<ion-toolbar mode="md">
+        <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" mode="md">
+            <ion-segment-button value="0" mode="md">
+              <ion-label> <span translate>Messages</span> </ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="1" mode="md">
+              <ion-label translate>Notifications</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+</ion-toolbar>
+
+<ion-content>
+
+<ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="false">
+ 
+  <ion-slide>
+      
+    <ion-list style="width:100%;">
+
+        <ion-item *ngFor="let message of lastMessages" lines="full" button="true" [routerLink]="['/message', message.idUser, message.userName]"> 
+          <ion-avatar item-start>
+              <ion-img src="https://res.cloudinary.com/dvgi0ogae/image/upload/c_fill,d_avatar.png,f_png,g_face,h_91,r_max,w_91/v1/remote_media/avatar"></ion-img>
+          </ion-avatar>
+          <ion-label>
+              <span class="pseudo">{{message.userName}}</span> <span class="date" translate [translateParams]="{value: 1}">{{ message.durationUnit | translate:{"value": message.duration } }}</span>
+              <span class="message">  {{message.lastMessage}} </span>
+          </ion-label>
+        </ion-item>
+    </ion-list>
+  
+
+  </ion-slide>
+
+<ion-slide class="notification">
+  <ion-icon name="notifications" ></ion-icon>
+  <p translate>Aucune notification</p>
+</ion-slide>
+
+
+
+</ion-slides>
+
+  <!-- <ion-fab *ngIf="segment==0" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/new-message']"><ion-icon name="pencil-sharp" size="large" ></ion-icon></ion-fab-button>
+  </ion-fab> -->
+
+</ion-content>

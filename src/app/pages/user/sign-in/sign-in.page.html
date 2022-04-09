@@ -1,0 +1,60 @@
+<ion-header mode="ios">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button  defaultHref="tabs/home" mode="md"></ion-back-button>
+        </ion-buttons>
+      <ion-title translate>
+        <img src="../../../assets/img/market/logo_market.png"/>
+      </ion-title> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class ="centerLogin">
+    <div heading-column-lr>
+      <h1 class="big-heading" translate>Se connecter</h1>
+    </div>
+    <ion-label>
+      
+    </ion-label>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    
+      <div class="section presentation">
+          <ion-item mode="md">
+              <ion-label mode="md" position="stacked" translate>Email</ion-label>
+              <ion-icon slot="end" name="mail-outline"></ion-icon>
+              <ion-input formControlName="email" ></ion-input>
+          </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.email">
+            <div class="error-message" *ngIf="userForm.get('email').hasError(validation.type) && (userForm.get('email').dirty || userForm.get('email').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+            </div>
+          </ng-container>
+        </div>
+
+        <ion-item mode="md">
+            <ion-label mode="md" position="stacked" >{{'Mot de passe' | translate}}*</ion-label>
+            <!-- <ion-icon slot="end" name="lock-closed-outline"></ion-icon> -->
+            <ion-icon slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
+            <ion-input [type]="showPassword ? 'text' : 'password'" formControlName="password" ></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.password">
+            <div class="error-message" *ngIf="userForm.get('password').hasError(validation.type) && (userForm.get('password').dirty || userForm.get('password').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate}}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+        
+        <div  class="div-button">
+          <ion-button expand="full" size="default"
+          type="submit"[disabled]="!userForm.valid " translate >Se connecter</ion-button>
+          <ion-button mode="md" fill="outline" expand="block" class="send-mail" [routerLink]="['/sign-up']" translate>Créer un compte</ion-button> 
+          <ion-label class="label-center">  <a  (click)="presentForgotPasswordAlertPrompt()" class="underline" translate>Mot de passe oublié ?</a> </ion-label>
+      </div>
+      </form>    
+  </div>
+</ion-content>

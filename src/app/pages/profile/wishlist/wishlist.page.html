@@ -1,0 +1,16 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="md">
+      <ion-buttons mode="md" slot="start">
+          <ion-back-button mode="md"></ion-back-button>
+      </ion-buttons>
+    <ion-title translate>Favoris</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+        <ion-item lines="none">
+                <p  class="small" *ngIf="wishlist.length > 0">{{wishlist.length}}+ {{"Favoris" | translate}}</p>
+                <p translate *ngIf="wishlist.length == 0">Aucune annonce favoris</p>
+              </ion-item>
+    <app-product-list [products]="wishlist"></app-product-list>
+</ion-content>

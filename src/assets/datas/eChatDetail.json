@@ -1,0 +1,72 @@
+[
+    {
+        "idSender":2,
+        "idReceiver":1,
+        "messagecontent": "Ok, envoyez-moi un message lorsque l'article vous est livré",
+        "date":"2020-11-17 10:31:18"
+        
+    },
+    {
+        "idSender":1,
+        "idReceiver":2,
+        "messagecontent": "Dans la rue XXXX à cette adresse",
+        "date":"2020-11-17 10:30:18"
+        
+    },
+    {
+        "idSender":2,
+        "idReceiver":1,
+        "messagecontent": "A quelle adresse je l'envoie?",
+        "date":"2020-11-17 10:29:18"
+        
+    },
+    {
+        "idSender":1,
+        "idReceiver":2,
+        "messagecontent": "Ok, je l'achète",
+        "date":"2020-11-17 10:28:18"
+        
+    },
+    {
+        "idSender":2,
+        "idReceiver":1,
+        "messagecontent": "Bien sur, mais à ce moment là c'est vous rembourserez la dépense de la livraison et le retour",
+        "date":"2020-11-17 10:27:18"
+        
+    },
+    {
+        "idSender":1,
+        "idReceiver":2,
+        "messagecontent": "Au cas où le produit n'est pas à la hauteur de mes attentes, pourrai-je la renvoyer?",
+        "date":"2020-11-17 10:26:18"
+        
+    },
+    {
+        "idSender":2,
+        "idReceiver":1,
+        "messagecontent": "C'est encore en très bonne état, presque neuve ne vous inquiétez pas",
+        "date":"2020-11-17 10:25:18"
+        
+    },
+    {
+        "idSender":1,
+        "idReceiver":2,
+        "messagecontent": "Je voudrais d'barod savoir en quel état il est",
+        "date":"2020-11-17 10:24:18"
+        
+    },
+    {
+        "idSender":2,
+        "idReceiver":1,
+        "messagecontent": "Bonjour, Donc vous allez l'acheter alors?",
+        "date":"2020-11-17 10:23:18"
+        
+    },
+    {
+    "idSender":1,
+    "idReceiver":2,
+    "messagecontent": "Bonjour, je suis in teréssé par votre annonces sur le lit evolutif",
+    "date":"2020-11-17 10:22:18"
+
+    }
+]

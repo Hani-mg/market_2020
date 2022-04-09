@@ -1,0 +1,213 @@
+<ion-header mode="ios">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button mode="md"></ion-back-button>
+        </ion-buttons>
+      <ion-title>{{user.pseudo}}</ion-title>
+      <ion-buttons slot="end">
+          <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" mode="md">
+        <ion-segment-button value="0" mode="md">
+          <ion-label translate>Réglage</ion-label>
+        </ion-segment-button >
+        
+        <ion-segment-button value="1" mode="md">
+            <ion-label translate>Mes infos</ion-label>
+          </ion-segment-button>
+    </ion-segment>
+
+    <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="false">
+      
+      <!-- Slide Wardrobe -->
+        <ion-slide>
+            <ion-list mode="md">
+                    <ion-item mode="md" lines="none">
+                            <h4 slot="start" translate>Modifier mon mot de passe</h4>
+                            <ion-icon end="end" name="lock-closed-outline"></ion-icon> 
+                    </ion-item>
+                    <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmitChangePassword()">
+                        <div class="section presentation">
+                                <ion-item mode="md">
+                                    <ion-label mode="md" position="stacked" >{{'Mot de passe actuel' | translate}} *</ion-label>
+                                    <ion-input formControlName="currentPassword" [type]="showPassword ? 'text' : 'password'"></ion-input>
+                                    <ion-icon slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
+                                </ion-item>
+                                <div class="validation-errors">
+                                        <ng-container *ngFor="let validation of validationMessages.password">
+                                            <div class="error-message" *ngIf="changePasswordForm.get('currentPassword').hasError(validation.type) && (changePasswordForm.get('currentPassword').dirty || changePasswordForm.get('currentPassword').touched)">
+                                            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+                                            </div>
+                                        </ng-container>
+                                </div>
+                                <hr/>
+                                <div formGroupName="matchingPassword">
+                                    <ion-item mode="md">
+                                        <ion-label mode="md" position="stacked" >{{'Nouveau mot de passe' | translate}} *</ion-label>
+                                        <ion-input formControlName="newPassword" [type]="showPassword ? 'text' : 'password'" ></ion-input>
+                                    </ion-item> 
+                                    <div class="validation-errors">
+                                        <ng-container *ngFor="let validation of validationMessages.password">
+                                            <div class="error-message" *ngIf="changePasswordForm.get('matchingPassword').get('newPassword').hasError(validation.type) && (changePasswordForm.get('matchingPassword').get('newPassword').dirty || changePasswordForm.get('matchingPassword').get('newPassword').touched)">
+                                            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                    <hr/>
+                                    <ion-item mode="md">
+                                            <ion-label mode="md" position="stacked" >{{'Confirmer nouveau mot de passe' | translate}} * </ion-label>
+                                            <ion-input formControlName="confirmNewPassword" [type]="showPassword ? 'text' : 'password'"></ion-input>
+                                    </ion-item> 
+                                    <div class="validation-errors">
+                                        <ng-container *ngFor="let validation of validationMessages.confirm_password">
+                                            <div class="error-message" *ngIf="changePasswordForm.get('matchingPassword').get('confirmNewPassword').hasError(validation.type) && (changePasswordForm.get('matchingPassword').get('confirmNewPassword').dirty || changePasswordForm.get('matchingPassword').get('confirmNewPassword').touched)">
+                                            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                    <div class="validation-errors">
+                                            <ng-container *ngFor="let validation of validationMessages.matching_passwords">
+                                                <div class="error-message" *ngIf="changePasswordForm.get('matchingPassword').hasError(validation.type) && (changePasswordForm.get('matchingPassword').dirty || changePasswordForm.get('matchingPassword').touched)">
+                                                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+                                                </div>
+                                            </ng-container>
+                                    </div>
+                                </div>
+                                    
+                        </div>
+                        <div  class="div-button" padding>
+                                <ion-button expand="full" mode="md" type="submit" [disabled]="!changePasswordForm.valid" translate>Modifier</ion-button>
+                        </div>
+                    </form>
+                     
+                      
+
+                    <app-product-list [products]="memberItems" *ngIf="!currentUser"></app-product-list>
+
+            </ion-list>
+            
+
+            
+
+        </ion-slide>
+      
+        <!-- Slide About -->
+        <ion-slide>
+
+          <ion-list mode="md">
+
+          <div class="cover">
+               
+            <img *ngIf="!image" src="/assets/img/avatars/avatar{{user.id}}.jpg" alt="" />
+            <ion-img  *ngIf="image" [src]="image"> </ion-img>
+          </div> 
+          <ion-icon name="camera-outline" (click)="presentAlertMultipleButtons()" button="true"></ion-icon>
+          
+          <form [formGroup]="userInformationForm" (ngSubmit)="onSubmitUpdateInformation()">
+            <div class="section presentation">
+                    <ion-item mode="md">
+                        <ion-label mode="md" position="stacked" >{{'Nom' | translate}}*</ion-label>
+                        <ion-icon slot="end" name="person-outline"></ion-icon>
+                        <ion-input formControlName="lastName" ></ion-input>
+                    </ion-item>
+                    <div class="validation-errors">
+                        <ng-container *ngFor="let validation of validationMessages.common">
+                        <div class="error-message" *ngIf="userInformationForm.get('lastName').hasError(validation.type) && (userInformationForm.get('lastName').dirty || userInformationForm.get('lastName').touched)">
+                            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+                        </div>
+                        </ng-container>
+                    </div>
+                    <hr/>
+                    <ion-item mode="md">
+                        <ion-label mode="md" position="stacked" >{{'Prénom' | translate}}*</ion-label>
+                        <ion-icon slot="end" name="person-outline"></ion-icon>
+                        <ion-input formControlName="firstName"></ion-input>
+                    </ion-item> 
+                    <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.common">
+                            <div class="error-message" *ngIf="userInformationForm.get('firstName').hasError(validation.type) && (userInformationForm.get('firstName').dirty || userInformationForm.get('firstName').touched)">
+                                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+                            </div>
+                            </ng-container>
+                    </div>
+                    <hr/>
+                    <ion-item mode="md">
+                            <ion-label mode="md" position="stacked" >{{'Adresse email' | translate}}* </ion-label>
+                            <ion-icon slot="end" name="mail-outline"></ion-icon>
+                            <ion-input formControlName="email" ></ion-input>
+                    </ion-item> 
+                    <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.email">
+                            <div class="error-message" *ngIf="userInformationForm.get('email').hasError(validation.type) && (userInformationForm.get('email').dirty || userInformationForm.get('email').touched)">
+                                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+                            </div>
+                            </ng-container>
+                    </div>
+                    <hr/>
+
+
+                    <div formGroupName="countryPhone">
+                            <ion-item lines="full" button="true" mode="md">
+                                    <ion-label class="label" translate> <img src={{userInformationForm.value.countryPhone.country.flag}} /></ion-label>
+                                    <ionic-selectable
+                                    formControlName="country"
+                                      [items]="countries"
+                                      itemValueField="alpha2Code"
+                                      itemTextField="name"
+                                      [canSearch]="true"
+                                      searchPlaceholder="{{'Selectionnez votre pays' | translate}}"
+                                      (onChange)="countryChange()">
+                                      <ng-template ionicSelectableCloseButtonTemplate>
+                                          <ion-back-button defaultHref="/tabs/sell" mode="md"></ion-back-button>
+                                      </ng-template>
+                                      <ng-template ionicSelectableItemTemplate let-child="item" > 
+                                            <ion-label>
+                                                <b translate>{{child.name}}</b>
+                                                <p translate>+{{child.callingCodes}} </p>
+                                            </ion-label>
+                                    
+                                      </ng-template>
+                                      
+                                    </ionic-selectable>
+                            </ion-item>
+                            <hr/>
+                            <ion-item mode="md">
+                                    <ion-label mode="md" position="stacked" translate>Numéro de téléphone</ion-label>
+                                    <ion-icon slot="end" name="call-outline"></ion-icon>
+                                    <ion-input placeholder="{{ countrySelected.samplePhone }}"  type="number" formControlName="phone" ></ion-input>
+                            </ion-item>
+                            <div class="validation-errors">
+                              <ng-container *ngFor="let validation of validationMessages.phone">
+                                <div class="error-message" *ngIf="userInformationForm.get('countryPhone').get('phone').hasError(validation.type) && (userInformationForm.get('countryPhone').get('phone').dirty || userInformationForm.get('countryPhone').get('phone').touched)">
+                                  <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+                                </div>
+                              </ng-container>
+                            </div>
+                          </div>
+
+
+                        
+            </div>
+            <div class="div-button" padding>
+                    <ion-button expand="full" mode="md" type="submit" [disabled]="!userInformationForm.valid" translate>Enregistrer la modification</ion-button>
+            </div>
+          </form>
+          
+        </ion-list>
+
+          
+          
+       </ion-slide>
+      
+      
+      
+      </ion-slides>
+
+      
+
+</ion-content>

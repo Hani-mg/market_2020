@@ -1,0 +1,15 @@
+[
+    {
+        "idProduct":5,
+        "productName":"Livre pour enfants",
+        "imgUrlList": ["https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_180,w_350/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f16f404e5f27/1595339750889.jpg"],
+        "idCategory":9,
+        "categoryName":"Livres enfant",
+        "price":100,
+        "idTown":4,
+        "townName":"Le grand-Quevilly",
+        "like" : false,
+        "date":"2020-11-17 10:22:18",
+        "favNumber":15
+    }
+]

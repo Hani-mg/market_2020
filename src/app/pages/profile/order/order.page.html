@@ -1,0 +1,32 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="md">
+      <ion-buttons mode="md" slot="start">
+          <ion-back-button mode="md"></ion-back-button>
+      </ion-buttons>
+    <ion-title translate>Mes annonces</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <ion-list  mode="md">
+        <ion-item *ngFor="let offer of myOffer" mode="md" lines="full" button="true">
+            <ion-thumbnail slot="start" size="large">
+              <ion-img [src]="offer.imgUrlList[0]"></ion-img>
+              
+            </ion-thumbnail>
+            <ion-label>
+                <span class="title">{{offer.productName}}</span> <span class="price">{{offer.price}} €</span> <br>
+                <ion-badge class="status" [color]="getColor(offer.status)" translate>{{getStatus (offer.status)}}</ion-badge> <br>
+                <span class="date">  {{offer.date}} </span>
+                <ion-icon name="trash-outline" color="danger" (click)="presentAlertConfirm(offer.idProduct)"></ion-icon>
+                <ion-icon name="create-outline" color="success" [routerLink]="['/edit-offer', offer.idProduct]"></ion-icon>
+                
+            </ion-label>
+          </ion-item>
+
+    </ion-list>
+    <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
+            <ion-fab-button (click)="CreatePopover()"><ion-icon name="add" size="large" ></ion-icon></ion-fab-button>
+          </ion-fab>
+</ion-content>

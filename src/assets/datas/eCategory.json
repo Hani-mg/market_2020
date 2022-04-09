@@ -1,0 +1,80 @@
+[
+	{
+		"superCategory": {
+			"idSuperCategory":1,
+			"superCategoryName":"Accessoires sorties enfant"
+			
+		},
+		"category":[
+            {
+			"idCategory":1,
+			"categoryName":"Poussettes enfant"
+            },
+            {
+                "idCategory":2,
+                "categoryName":"Sac à langer"
+            },
+            {
+                "idCategory":3,
+                "categoryName":"Sièges autos enfants"
+            }
+        ]
+    },
+    {
+		"superCategory": {
+			"idSuperCategory":2,
+			"superCategoryName":"Mode enfant"
+			
+		},
+		"category":[
+            {
+			"idCategory":4,
+			"categoryName":"Adolescent"
+            },
+            {
+                "idCategory":5,
+                "categoryName":"bijoux enfant"
+            },
+            {
+                "idCategory":6,
+                "categoryName":"Chaussures enfant"
+            }
+        ]
+    },
+    {
+		"superCategory": {
+			"idSuperCategory":3,
+			"superCategoryName":"Meubles enfant"
+			
+		},
+		"category":[
+            {
+			"idCategory":7,
+			"categoryName":"Chambre enfant"
+            }
+        ]
+    },
+    {
+		"superCategory": {
+			"idSuperCategory":4,
+			"superCategoryName":"Eveil & jouets enfant"
+			
+		},
+		"category":[
+            {
+			"idCategory":8,
+			"categoryName":"Eveils, jouets, jeux"
+            },
+            {
+                "idCategory":9,
+                "categoryName":"Livres enfant"
+            },
+            {
+                "idCategory":10,
+                "categoryName":"Trottinette, vélos ..."
+            }
+        ]
+    }
+
+	
+]

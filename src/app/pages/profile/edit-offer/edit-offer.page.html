@@ -1,0 +1,333 @@
+<ion-header mode="ios" >
+  <ion-toolbar mode="md"  [color]="currentColor" >
+    
+      <ion-buttons mode="md" slot="start">
+          <ion-back-button mode="md"></ion-back-button>
+      </ion-buttons>
+    <ion-title translate  >
+      {{title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form *ngIf="idType !=5 " [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <div class="section upload">
+      <p><span translate>Ajouter jusqu'à 3 photos</span> </p>
+      <ion-segment mode="md" scrollable >
+
+        <ion-thumbnail mode="md" *ngFor="let image of images; let id = index">
+            <ion-icon name="close-circle" (click)="deletePhoto(id)" color="light"></ion-icon>
+            <ion-img [src]="image"> </ion-img>
+        </ion-thumbnail>
+
+        <ion-button *ngIf="images.length<3" mode="md" fill="outline" class="btn-add-photo" (click)="presentAlertMultipleButtons()">
+          <ion-icon *ngIf="!images.length" slot="start" name="add"></ion-icon>
+          <ion-icon *ngIf="images.length" name="add"></ion-icon>
+          <span translate *ngIf="!images.length">Ajouter photos</span>
+        </ion-button>
+        
+      </ion-segment>
+    </div>
+
+    <div class="section presentation">
+      <ion-item mode="md">
+        <ion-label mode="md" position="stacked" translate>Désignation du produit</ion-label>
+        <ion-input formControlName="title" placeholder="{{ 'ex. Lit évolutif' | translate }}"></ion-input>
+      </ion-item> 
+
+      <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.common">
+            <div class="error-message" *ngIf="itemForm.get('title').hasError(validation.type) && (itemForm.get('title').dirty || itemForm.get('title').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+            </div>
+          </ng-container>
+        </div>
+
+      <ion-item mode="md">
+        <ion-label mode="md" position="stacked" translate>Description</ion-label>
+        <ion-input formControlName="description" placeholder="{{ 'e.G. Berceau évolutif Galipette UNO' | translate }}"></ion-input>
+      </ion-item>
+
+      <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.common">
+            <div class="error-message" *ngIf="itemForm.get('description').hasError(validation.type) && (itemForm.get('description').dirty || itemForm.get('description').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+            </div>
+          </ng-container>
+      </div>
+
+    </div>
+
+    <div class="section features">
+        
+      <ion-list class="ion-no-padding" mode="md">
+      <!-- <ion-item detail lines="full" button="true" mode="md"> 
+          <p class="label" translate>Category</p>  
+        </ion-item>  -->
+        <ion-item lines="full" button="true" mode="md">
+          <ion-label class="label" translate>Mon article est à</ion-label>
+          <ionic-selectable
+          formControlName="type"
+            [items]="types"
+            itemValueField="idType"
+            itemTextField="typeName"
+            [canSearch]="true"
+            searchPlaceholder="{{'Rechercher un type' | translate }}"
+            (onChange)="typeChange($event)">
+            <ng-template ionicSelectableCloseButtonTemplate>
+                <ion-back-button defaultHref="/edit-offer/{{idItem}}" mode="md"></ion-back-button>
+            </ng-template>
+            
+          </ionic-selectable>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.common">
+          <div class="error-message" *ngIf="itemForm.get('type').hasError(validation.type) && (itemForm.get('type').dirty || itemForm.get('type').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+          </div>
+        </ng-container>
+      </div>
+
+        <ion-item lines="full" button="true" mode="md">
+            <ion-label class="label" translate> Catégorie</ion-label>
+            <ionic-selectable
+              formControlName="category"
+              [items]="categories"
+              itemValueField="term_id"
+              itemTextField="name"
+              [canSearch]="true"
+              searchPlaceholder="{{'Rechercher une catégorie' | translate}}"
+            
+              item-content
+              groupValueField="parentName" 
+              groupTextField="parentName"
+              (onChange)="categoryChange($event)">
+              <ng-template ionicSelectableCloseButtonTemplate>
+                  <ion-back-button defaultHref="/edit-offer/{{idItem}}" mode="md"></ion-back-button>
+              </ng-template>
+              <ng-template ionicSelectableGroupTemplate let-group="group">
+                 <span translate>{{group.text}}</span> 
+              </ng-template>
+
+              <ng-template ionicSelectableItemTemplate let-child="item" >
+                  <span translate>{{child.name}}</span> 
+              </ng-template>
+
+              <ng-template ionicSelectableValueTemplate let-val="value">
+                  <span translate>{{val.name}}</span>
+                </ng-template>
+
+              
+            </ionic-selectable>
+        </ion-item>
+
+        <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessages.common">
+              <div class="error-message" *ngIf="itemForm.get('category').hasError(validation.type) && (itemForm.get('category').dirty || itemForm.get('category').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+              </div>
+            </ng-container>
+        </div>
+  
+       
+        <!-- <ion-item lines="full" button="true" mode="md">
+          <ion-label class="label" translate>Ville</ion-label>
+          <ionic-selectable
+            formControlName="town"
+            [items]="towns"
+            itemValueField="term_id"
+            itemTextField="name"
+            [canSearch]="true"
+            searchPlaceholder="{{'Rechercher une ville' | translate }}"
+          
+            item-content
+            groupValueField="parentName" 
+            groupTextField="parentName"
+            (onChange)="categoryChange($event)">
+            <ng-template ionicSelectableCloseButtonTemplate>
+                <ion-back-button defaultHref="/edit-offer/{{idItem}}" mode="md"></ion-back-button>
+            </ng-template>
+            <ng-template ionicSelectableGroupTemplate let-group="group">
+              <span translate>{{group.text}}</span> 
+            </ng-template>
+
+            <ng-template ionicSelectableItemTemplate let-child="item" >
+                <span translate>{{child.name}}</span> 
+            </ng-template>
+
+            <ng-template ionicSelectableValueTemplate let-val="value">
+                <span translate>{{val.name}}</span>
+              </ng-template>
+
+            
+          </ionic-selectable>
+        </ion-item> -->
+       
+        <app-search-cities-autocomplete [cityName]="townName" formControlName="town"  (citySelected)="chooseCity($event)"></app-search-cities-autocomplete>
+
+      
+        <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessages.common">
+              <div class="error-message" *ngIf="itemForm.get('town').hasError(validation.type) && (itemForm.get('town').dirty || itemForm.get('town').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+              </div>
+            </ng-container>
+        </div>
+  
+
+        
+
+      </ion-list>
+    </div>
+
+    <div class="section presentation">
+        <ion-list mode="md">
+            <ion-item mode="md">
+                <ion-label mode="md" position="stacked" translate>Prix</ion-label>
+                <ion-input formControlName="price" type="number" placeholder="0.00 €"></ion-input>
+              </ion-item>
+
+              <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validationMessages.common">
+                    <div class="error-message" *ngIf="itemForm.get('price').hasError(validation.type) && (itemForm.get('price').dirty || itemForm.get('price').touched)">
+                      <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+                    </div>
+                  </ng-container>
+              </div>
+        
+            <ion-item lines="full" mode="md"> 
+              <p class="label" translate>Afficher le téléphone sur mes annonces</p> <ion-checkbox formControlName="phoneNumberPermission" mode="md" slot="end"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+      
+    </div>
+    <!-- || !images?.length > 0 -->
+    <div padding>
+      <ion-button expand="full" mode="md" type="submit" [disabled]="!itemForm.valid || !updateButtonIsEnable" translate>Modifier mon annonce</ion-button>
+      <!-- <p class="small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quibusdam in quo repellat nulla. Natus a id accusamus totam delectus voluptates <a>rem corrupti, nisi cumque</a> minus consequatur vel, harum adipisci?</p> -->
+    </div>
+  </form>
+
+  <form *ngIf="idType ==5 "[formGroup]="humanitaryForm" (ngSubmit)="onSubmitHumanitary()">
+    <div class="section upload">
+      <p><span translate>Ajouter jusqu'à 3 photos</span> </p>
+      <ion-segment mode="md" scrollable >
+
+        <ion-thumbnail mode="md" *ngFor="let image of images; let id = index">
+            <ion-icon name="close-circle" (click)="deletePhoto(id)" color="light"></ion-icon>
+            <ion-img [src]="image"> </ion-img>
+        </ion-thumbnail>
+
+        <ion-button *ngIf="images.length<3" mode="md" fill="outline" class="btn-add-photo" (click)="presentAlertMultipleButtons()">
+          <ion-icon *ngIf="!images.length" slot="start" name="add"></ion-icon>
+          <ion-icon *ngIf="images.length" name="add"></ion-icon>
+          <span translate *ngIf="!images.length">Ajouter photos</span>
+        </ion-button>
+        
+      </ion-segment>
+    </div>
+
+    <div class="section presentation">
+      <ion-item mode="md">
+        <ion-label mode="md" position="stacked" translate>Titre</ion-label>
+        <ion-input formControlName="title" placeholder="{{ 'Titre de l\'action' | translate }}"></ion-input>
+      </ion-item> 
+
+      <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.common">
+            <div class="error-message" *ngIf="humanitaryForm.get('title').hasError(validation.type) && (humanitaryForm.get('title').dirty || humanitaryForm.get('title').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+            </div>
+          </ng-container>
+        </div>
+
+      <ion-item mode="md">
+        <ion-label mode="md" position="stacked" translate>Description</ion-label>
+        <ion-input formControlName="description" placeholder="{{ 'Expliquer l\'action, le besoin' | translate }}"></ion-input>
+      </ion-item>
+
+      <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.common">
+            <div class="error-message" *ngIf="humanitaryForm.get('description').hasError(validation.type) && (humanitaryForm.get('description').dirty || humanitaryForm.get('description').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+            </div>
+          </ng-container>
+      </div>
+
+    </div>
+
+    <div class="section presentation">
+      <ion-item mode="md">
+        <ion-label mode="md" position="stacked" translate>Nom de l'association</ion-label>
+        <ion-input formControlName="associationName" placeholder="{{ 'Si ce n\'est pas pour un parcticulier' | translate }}"></ion-input>
+      </ion-item> 
+
+      <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.common">
+            <div class="error-message" *ngIf="humanitaryForm.get('associationName').hasError(validation.type) && (humanitaryForm.get('associationName').dirty || humanitaryForm.get('associationName').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+            </div>
+          </ng-container>
+        </div>
+
+      <ion-item mode="md">
+        <ion-label mode="md" position="stacked" translate>Cause</ion-label>
+        <ion-input formControlName="cause" placeholder="{{ 'pour un pays/ région, pour une maladie, un tiers ou autre' | translate }}"></ion-input>
+      </ion-item>
+
+      <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.common">
+            <div class="error-message" *ngIf="humanitaryForm.get('cause').hasError(validation.type) && (humanitaryForm.get('cause').dirty || humanitaryForm.get('cause').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+            </div>
+          </ng-container>
+      </div>
+
+      <ion-item mode="md">
+        <ion-label mode="md" position="stacked" translate>Information</ion-label>
+        <ion-input formControlName="info" placeholder="{{ 'contcat :téléphone, email' | translate }}"></ion-input>
+      </ion-item>
+
+      <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.common">
+            <div class="error-message" *ngIf="humanitaryForm.get('info').hasError(validation.type) && (humanitaryForm.get('info').dirty || humanitaryForm.get('info').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+            </div>
+          </ng-container>
+      </div>
+
+    </div>
+
+    <div class="section features">
+        
+      <ion-list class="ion-no-padding" mode="md">
+      <!-- <ion-item detail lines="full" button="true" mode="md"> 
+          <p class="label" translate>Category</p>  
+        </ion-item>  -->
+        
+
+        
+      <app-search-cities-autocomplete [cityName]=""  formControlName="town"  (citySelected)="chooseCity($event)"></app-search-cities-autocomplete>
+
+      
+      <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.common">
+            <div class="error-message" *ngIf="itemForm.get('town').hasError(validation.type) && (itemForm.get('town').dirty || itemForm.get('town').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message | translate }}
+            </div>
+          </ng-container>
+      </div>
+       
+
+      </ion-list>
+    </div>
+
+   
+
+    <div class="div-button" padding>
+      <ion-button expand="full" mode="md" type="submit" [disabled]="!humanitaryForm.valid || !updateButtonIsEnable " translate>Poster mon annonce</ion-button>
+      <!--  || !images?.length > 0 <p class="small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quibusdam in quo repellat nulla. Natus a id accusamus totam delectus voluptates <a>rem corrupti, nisi cumque</a> minus consequatur vel, harum adipisci?</p> -->
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,110 @@
+[
+
+    {
+        "id":1,
+        "pseudo":"demo_1",
+        "review":0,
+        "review_star":"0",
+        "follower":0,
+        "following":0,
+        "about":"",
+        "wishlist":[1, 4, 7],
+        "town": "Paris",
+        "country": "France"
+        
+    },
+    {
+        "id":2,
+        "pseudo":"lopito43",
+        "review":0,
+        "review_star":"0",
+        "follower":46,
+        "following":0,
+        "about":"",
+        "wishlist":[],
+        "town": "Paris",
+        "country": "France"
+        
+    },
+    {
+        "id":3,
+        "pseudo":"lucaskk",
+        "review":55,
+        "review_star":"5",
+        "follower":4,
+        "following":12,
+        "about":"I separate myself from clothes that I no longer wear!  😊",
+        "wishlist":[],
+        "town": "Paris",
+        "country": "France"
+        
+    },
+    {
+        "id":5,
+        "pseudo":"maxmoux",
+        "review":122,
+        "review_star":"3.5",
+        "follower":15,
+        "following":200,
+        "about":"🌸🌸 Love fashion",
+        "wishlist":[],
+        "town": "Corse",
+        "country": "France"
+        
+    },
+    {
+        "id":6,
+        "pseudo":"rafael87",
+        "review":150,
+        "review_star":"4",
+        "follower":15,
+        "following":200,
+        "about":"Industrial designer",
+        "wishlist":[],
+        "town": "Reims",
+        "country": "France"
+        
+    },
+    {
+        "id":7,
+        "pseudo":"steph_z2",
+        "review":25,
+        "review_star":"4.5",
+        "follower":43,
+        "following":55,
+        "about":"Elegance is the only beauty that never fades 👗👙👚👛👜👠👡👢",
+        "wishlist":[1, 2],
+        "town": "Paris",
+        "country": "France"
+        
+    },
+    {
+        "id":10,
+        "pseudo":"pink_dressing",
+        "review":252,
+        "review_star":"5",
+        "follower":233,
+        "following":45,
+        "about":"Hola 🙋🏻‍♀️ soy Isabela , ese es mi armario de desapego 👗👠👜🕶",
+        "wishlist":[],
+        "town": "Madrid",
+        "country": "Spain"
+        
+    },
+    {
+        "id":12,
+        "pseudo":"adamyan",
+        "review":52,
+        "review_star":"4",
+        "follower":23,
+        "following":102,
+        "about":"Stylist 👗👜👠",
+        "wishlist":[],
+        "town": "Paris",
+        "country": "France"
+        
+    }
+
+    
+
+]

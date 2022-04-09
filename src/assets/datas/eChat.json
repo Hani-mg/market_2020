@@ -1,0 +1,32 @@
+[
+    { 
+        "idUser":2,
+        "userName":"Claude",
+        "lastMessage":"J'ai bien reçu l'article, merci",
+        "date":"2020-12-03 10:30:18"
+    },
+    {
+        "idUser":2,
+        "userName":"Gladys",
+        "lastMessage":"Bonjour, je suis interéssé par votre article de vêtements pour bébé",
+        "date":"2020-12-02 10:30:18"
+    },
+    {
+        "idUser":2,
+        "userName":"Mireille",
+        "lastMessage":"On vous le livre ou vous voulez venir la prendre?",
+        "date":"2020-12-1 10:30:18"
+    },
+    {
+        "idUser":2,
+        "userName":"François",
+        "lastMessage":"Je ne suis pas du tout satisfait de l'état du berceau",
+        "date":"2020-12-03 10:30:18"
+    },
+    {
+        "idUser":2,
+        "userName":"Ariette",
+        "lastMessage":"Ok, envoyez-moi un message lorsque l'article vous est livré",
+        "date":"2020-11-17 10:30:18"
+    }
+]

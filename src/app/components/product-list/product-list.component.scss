@@ -1,0 +1,158 @@
+.avatar 
+{
+  width:24px;
+  height:24px;
+}
+
+.product-item , .product-item ion-label
+{
+    font-size:12px;
+    font-weight: 400;
+    font-family: "Maison Neue", "Helvetica Neue", "Helvetica-Neue", "Arial", sans-serif;
+}
+
+.cover 
+{
+  width:100%;
+  height:208px;
+}
+
+.product_price 
+{
+  // color: var(--ion-color-dark);
+  // color : var(--price-color);
+  font-weight:bold;
+  font-size:17px;
+  font-weight: 600;
+}
+
+.product_fav 
+{
+  text-align:right;
+  display:block;
+  width:100%;
+  // font-weight: 600;
+  color: var(--ion-text-color);
+
+}
+ion-icon{
+  font-size: 18px;
+}
+.icon {
+  display: inline-block;
+  // font-size: 25px;s
+  vertical-align: middle;
+ }
+ 
+ .text{
+  margin-left: 3px;
+  margin-right:3px;
+   display: inline-block;
+   vertical-align: middle;
+ }
+
+// .product_fav ion-icon{
+//   font-size:17px;
+//   vertical-align: top;
+// }
+
+ion-icon{
+  
+  
+  font-size:17px;
+  vertical-align: middle;
+}
+.outer {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+.product_fav .fav_number
+{
+  font-size:13px;
+}
+
+.user-name 
+{
+  line-height:25px;
+  // padding-left:5px;
+}
+
+.product-bottom { 
+  text-align:left;
+}
+
+.sync {
+  margin-left: 5px;
+}
+
+.specific_price {
+  font-size:11px;
+  text-decoration: line-through;
+  margin-left: 2px;
+}
+
+.title{
+  color: var(--e-blue-color);
+  font-weight: bold;
+}
+
+
+.disabled
+{
+  // pointer-events: none;
+
+  // /* for "disabled" effect */
+  // opacity: 0.5;
+}
+
+// .overlay {
+//   position: fixed;
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: rgba(0,0,0,0.5);
+//   z-index: 2;
+//   cursor: pointer;
+// }
+// .content {
+//   text-align: center;
+//   opacity: 0;
+//   width: 100%;
+//   height: 100%;
+//   position: relative;
+//   -webkit-transition: all 0.3s ease - in -out;
+//   -moz-transition: all 0.3s ease - in -out;
+//   -o-transition: all 0.3s ease - in -out;
+//   -ms-transition: all 0.3s ease - in -out;
+//   transition: all 0.3s ease - in -out;
+//   opacity: 1;
+// }
+
+.overlay {
+  background: rgba(0, 0, 0, .25);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+  text-align: center;
+  padding: 150px 0;
+  // display: none;
+}
+
+h1{
+  font-weight: bold;
+  background-color: red;
+  color:white;border-radius: 30px;
+  // border-radius: 50% 20% / 10% 40%;
+  margin-left: 25px;
+  margin-right: 35px;text-shadow: #FC0 1px 0 10px;
+}
+.blackText{
+  color : black;
+}

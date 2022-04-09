@@ -1,0 +1,38 @@
+
+.date {
+    float:right;
+    font-size:14px;
+}
+.message {
+    display:block;
+}
+
+.pseudo{
+    color: var(--ion-color-dark);
+    font-weight: bold;
+}
+
+
+.unread {
+    --background: linear-gradient(rgba(9,177,186,0.08), rgba(9,177,186,0.08)),#fff;
+}
+
+ion-item {
+    --inner-padding-bottom : 10px;
+    --inner-padding-top : 10px;
+}
+
+.notification{
+  height: calc(100vh - 140px);
+}
+
+.notification ion-icon{
+    position: absolute;
+    top: 30%;
+    font-size: 59px;
+}
+
+
+ion-toolbar .section{
+  border-bottom:solid silver 1px;
+}

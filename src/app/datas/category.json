@@ -1,0 +1,132 @@
+[
+
+        {
+            "category_id":1,
+            "name":"Catégorie",
+            "icon":"../assets/img/dress.svg",
+            "child":[ 
+                {
+                    "category_id":11,
+                    "name":"Accessoire sortie enfant",
+                    "icon":"../assets/img/pajamas.svg",
+                    "child":[
+                        {
+                            "category_id":112,
+                            "name":"Dresses",
+                            "child":[
+                                {
+                                    "category_id":1121,
+                                    "name":"Summer dresses"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "category_id":12,
+                    "name":"Mode enfant",
+                    "icon":"../assets/img/stroller.svg",
+                    "child":[
+
+                    ]
+
+                },
+                {
+                    "category_id":13,
+                    "name":"Meubles enfant",
+                    "icon":"../assets/img/handbag.svg",
+                    "child":[
+
+                    ]
+
+                },
+                {
+                    "category_id":14,
+                    "name":"Eveil et jouets enfant",
+                    "icon":"../assets/img/toy.svg",
+                    "child":[
+
+                    ]
+
+                },
+                {
+                    "category_id":15,
+                    "name":"puériculture",
+                    "icon":"../assets/img/milk.svg",
+                    "child":[
+
+                    ]
+
+                }
+            ]
+        },
+        {
+            "category_id":2,
+            "name":"Ville",
+            "child":[
+                {
+                    "category_id":21,
+                    "name":"Ile de France",
+                    "icon":"../assets/img/tshirt.svg"
+                },
+                {
+                    "category_id":26,
+                    "name":"Occtitanie",
+                    "icon":"../assets/img/sweatshirt.svg"
+                },
+                {
+                    "category_id":22,
+                    "name":"Normandie",
+                    "icon":"../assets/img/jean.svg"
+                },
+                {
+                    "category_id":23,
+                    "name":"Hauts de France",
+                    "icon":"../assets/img/short.svg"
+                },
+                {
+                    "category_id":24,
+                    "name":"Fort de France",
+                    "icon":"../assets/img/shoe.svg"
+                },
+                {
+                    "category_id":25,
+                    "name":"Province alpes cote d'azur",
+                    "icon":"../assets/img/watch.svg"
+                },
+                {
+                    "category_id":27,
+                    "name":"Ducos",
+                    "icon":"../assets/img/sleeveless.svg"
+                }
+            ]
+
+        },
+        {
+            "category_id":3,
+            "name":"Types d'annonces",
+            "child":[
+                {
+                    "category_id":31,
+                    "name":"Vente",
+                    "icon":"../assets/img/pajamas.svg"
+                },
+                {
+                    "category_id":32,
+                    "name":"Dons",
+                    "icon":"../assets/img/toy.svg"
+                },
+                {
+                    "category_id":33,
+                    "name":"Location",
+                    "icon":"../assets/img/milk.svg"
+                },
+                {
+                    "category_id":34,
+                    "name":"Echange",
+                    "icon":"../assets/img/stroller.svg"
+                }
+            ]
+
+        }
+]

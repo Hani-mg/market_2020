@@ -1,0 +1,282 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// global font
+@font-face {
+    font-family: 'Maison Neue';
+    src: url('./assets/fonts/MaisonNeue-light.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: "Maison Neue", "Helvetica Neue", "Helvetica-Neue", "Arial", sans-serif !important;
+    // font-family: Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    letter-spacing: 0.5px;
+}
+
+
+// ion-content {
+//     font-family: "Maison Neue", "Helvetica Neue", "Helvetica-Neue", "Arial", sans-serif;
+// }
+
+@font-face {
+    font-family: 'Libby Heavy Heavy';
+    src: url('./assets/fonts/LibbyHeavyHeavy.ttf');
+
+}
+
+.filter-type{
+    font-family: "Libby Heavy Heavy" !important;
+   
+}
+
+ion-title {
+font-size: 16px;
+line-height: 22px;
+color: #111;
+font-weight: 500;
+}
+
+.avatar img {
+    border-radius: 3996px;
+    object-fit: cover;
+}
+
+
+.option
+{
+  padding-right:15px;
+  font-size:20px;
+}
+
+.swiper-pagination-bullet {
+    background: var(--ion-color-light-contrast);
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--ion-color-medium-contrast);
+}
+
+.disponibility .label {
+    color:var(--ion-color-dark-contrast);
+}
+
+.label {
+    color:var(--ion-color-dark);
+}
+
+.no-padding {
+    padding:0 !important;
+}
+
+.no-right-padding {
+    padding-right:0 !important;
+}
+
+.no-left-padding
+{
+    padding-left:0 !important;
+}
+
+.no-top-padding
+{
+    padding-top:0 !important;
+}
+
+.no-bottom-padding
+{
+    padding-bottom:0 !important;
+}
+
+.no-height
+{
+    height:0 !important;
+    min-height:0 !important;
+}
+
+.rating ion-icon{
+    font-size:18px;
+    color:#F7C600;
+}
+
+ion-item {
+    --background-activated: var(--ion-color-primary-tint);
+    --color: var(--ion-color-dark);
+    --color-activated:var(--ion-color-primary);
+}
+
+ion-title {
+    font-size:18px;
+}
+
+ion-avatar{
+    width:45px;
+    height:45px;
+    margin-right:13px;
+    margin-top: 0;
+}
+
+ion-label {
+    white-space: initial !important;
+}
+
+.label {
+    font-weight:bold;
+    font-size:15px;
+}
+
+ion-title {
+    font-weight:bold;
+}
+
+ion-segment-button ion-label {
+    // text-transform: capitalize;
+}
+
+.segment-button-checked{
+    color: var(--ion-color-light-contrast);
+}
+
+ion-segment {
+    border-bottom:solid  var(--ion-color-medium-tint) 1px;
+}
+
+.user_block p{
+    color: var( --ion-color-dark-tint);
+}
+.user_block .name{
+    font-weight:bold;
+    font-size:15px;
+}
+
+.user_block .review{
+    margin-left:5px;
+    position: absolute;
+}
+
+ion-button{
+    height: 40px;
+    --border-width: 0.5px;
+    // text-transform: capitalize;
+    text-transform: none;
+    font-weight:bold;
+}
+
+ion-tab-button {
+    font-weight: bold;
+}
+
+a {
+    text-decoration:none;
+}
+
+
+ion-toolbar.sc-ion-searchbar-ios-h, ion-toolbar .sc-ion-searchbar-ios-h {
+   padding:0;
+}
+
+ion-content {
+    .error-message
+    {
+      color: red;
+      font-size: 14px;
+      margin-left: 10px;
+      margin-top: 10px;
+      text-align: left;
+    }
+}
+
+/**Filter offer type**/
+
+
+.blue{
+    background-color: var(--e-blue-color) ;
+}
+.pink{
+    background-color:var(--c-pink-color) ;
+}
+
+.yellow{
+    background-color: var(--o-yellow-color);
+}
+
+.green{
+    background-color:var(--c-green-color) ;
+}
+.purple{
+    background-color:var(--h-purple-color) ;
+}
+
+.blueText{
+    color: var(--e-blue-color) ;
+}
+.pinkText{
+    color:var(--c-pink-color) ;
+}
+
+.yellowText{
+    color: var(--o-yellow-color);
+}
+
+.greenText{
+    color:var(--c-green-color) ;
+}
+.purpleText{
+    color:var(--h-purple-color) ;
+}
+
+.filter 
+{
+  width:100%;
+  height:99px;
+  color: white;
+      // text-align: center;
+      // vertical-align: middle 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-family: "Libby Heavy Heavy" !important;
+}
+.div-button{
+    padding-left:10px;
+    padding-right:10px;
+    // padding:10px;
+}
+
+.lower-label-filter{
+    text-transform:lowercase;
+}
+
+.label-center{
+    color: #000;
+    font-size: 13px;
+    display: block;
+    text-align: center;
+    padding: 10px;
+}

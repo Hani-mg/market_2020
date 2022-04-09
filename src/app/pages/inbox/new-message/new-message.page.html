@@ -1,0 +1,24 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="md">
+      <ion-buttons slot="start" mode="md">
+          <ion-back-button mode="md"></ion-back-button>
+      </ion-buttons>
+    <ion-title translate>New message</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+            <ion-label translate>To :</ion-label>
+          </ion-col>
+
+          <ion-col>
+           <ion-input placeholder="{{ 'Select a member' | translate }}" autofocus="true"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+</ion-content>

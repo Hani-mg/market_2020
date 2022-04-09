@@ -1,0 +1,40 @@
+[
+
+    {
+        "id":1,
+        "name":"Nike"
+    },
+    {
+        "id":2,
+        "name":"Zara"
+    },
+    {
+        "id":3,
+        "name":"Adidas"
+    },
+    {
+        "id":4,
+        "name":"Levi's"
+    },
+    {
+        "id":5,
+        "name":"H&M"
+    },
+    {
+        "id":6,
+        "name":"Lacoste"
+    },
+    {
+        "id":7,
+        "name":"Calvin Klein"
+    },
+    {
+        "id":8,
+        "name":"Tommy Hilfiger"
+    },
+    {
+        "id":9,
+        "name":"Guess"
+    }
+
+]

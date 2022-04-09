@@ -1,0 +1,68 @@
+[
+	{
+        "idProduct":1,
+		"productName":"Pousette Stokke",
+        "imgUrlList": ["https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_180,w_350/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f4fdade59224/1599068850435.jpg"],
+        "idCategory":1,
+		"categoryName":"Poussettes enfant",
+        "price":150,
+        "idTown":1,
+        "townName":"Marseille",
+        "idType":0,
+        "date":"2018-07-17 10:22:18",
+        "favNumber":12
+    },
+    {
+        "idProduct":2,
+		"productName":"Baskets adidas taille 37.5",
+        "imgUrlList": ["https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_180,w_350/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f2ebaec6db8f/1596898007889.jpg"],
+        "idCategory":4,
+		"categoryName":"Adolescent",
+        "price":20,
+        "idTown":3,
+        "townName":"Toulouse",
+        "idType":1,
+        "date":"2019-07-17 10:22:18",
+        "favNumber":6
+    },
+    
+    {
+        "idProduct":3,
+		"productName":"Lit evolutif galipette",
+        "imgUrlList": ["https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_180,w_350/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f58e1b1a1533/1599660455592.jpg"],
+        "idCategory":7,
+		"categoryName":"Chambre enfant",
+        "price":100,
+        "idTown":4,
+        "townName":"Le grand-Quevilly",
+        "idType":2,
+        "date":"2020-07-17 10:22:18",
+        "favNumber":5
+    },
+    {
+        "idProduct":4,
+		"productName":"Lot de livre Martine",
+        "imgUrlList": ["https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_180,w_350/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f16f4e7f41e0/159533999049.jpg"],
+        "idCategory":9,
+		"categoryName":"Livres enfant",
+        "price":100,
+        "idTown":5,
+        "townName":"Creil",
+        "idType":3,
+        "date":"2020-11-17 10:22:18",
+        "favNumber":2
+    },
+    {
+        "idProduct":5,
+		"productName":"Livre pour enfants",
+        "imgUrlList": ["https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_180,w_350/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f16f404e5f27/1595339750889.jpg"],
+        "idCategory":9,
+		"categoryName":"Livres enfant",
+        "price":100,
+        "idTown":4,
+        "townName":"Le grand-Quevilly",
+        "idType":0,
+        "date":"2020-11-27 10:22:18",
+        "favNumber":1
+    }
+]

@@ -1,0 +1,167 @@
+<ion-header mode="ios">
+    <ion-toolbar mode="md">
+      <ion-buttons slot="start" mode="md">
+          <ion-back-button defaultHref="/" mode="md"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{offer.productName}}</ion-title>
+      <ion-buttons slot="end" mode="md">
+          <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content color="medium-tint">
+  
+    <ion-slides pager="true" class="cover">
+      <ion-slide *ngFor="let img of offer.imgUrlList; let i = index" >
+          <img [src]=img/>
+      </ion-slide>
+    </ion-slides>
+  
+    <div class="section">
+       
+        <!-- <ion-toolbar *ngIf="product.sold" color="success" class="disponibility" mode="md"> 
+          <ion-title class="label" translate>Sold</ion-title> 
+        </ion-toolbar> -->
+  
+        <ion-list mode="md">
+            
+            <ion-item detail lines="full" button="true" >  
+                <ion-avatar item-start>
+                    <ion-img src="../../../assets/img/avatars/avatar1.jpg"></ion-img>
+                </ion-avatar>
+                <ion-label class="user_block">
+                    <p class="name">{{owner.username}} </p>
+                    <!-- '' -->
+                    <p class="name"><span > {{ 'annonces en ligne' | translate:{"value": owner.offerNumber  } }} </span></p>
+                 </ion-label>
+            </ion-item>
+      
+            <ion-item lines="none" class="short_description">
+                <ion-label>
+                    <p ><b class="title">{{offer.productName}}</b></p>
+                    <p  *ngIf="offerType != 5"><a [routerLink]="['/listing','category', category.idCategory]" translate>{{category.categoryName}}</a> - <ion-icon name="time-outline"></ion-icon> {{ offer.durationUnit | translate:{"value": offer.duration } }} - <ion-icon name="location-outline"></ion-icon> <span translate>{{town.townName}}</span></p>
+                    <p  *ngIf="offerType != 5"><span class="price {{color+'Text'}}">{{offer.price}} € <span *ngIf="offerType == 2">Don</span> </span> </p>
+                </ion-label>
+            </ion-item>
+      
+        </ion-list>
+      
+      
+        <ion-grid class="add-to-cart" >
+            <ion-row>
+               <ion-col size="12"> <ion-button mode="md" fill="outline" expand="block" class="send-mail" [routerLink]="['/message', owner.idUser, owner.username]" translate> <ion-icon name="chatbubble-outline"></ion-icon>Se mettre en contact</ion-button> </ion-col>
+               <!-- <ion-col size="12"  *ngIf="!isFav(offer.idProduct)"> <ion-button mode="md" expand="block" (click)="toogleFav(offer.idProduct)" > <ion-icon name="checkmark-outline"></ion-icon> <span translate>Je suis interessé(e)</span></ion-button> </ion-col>
+               <ion-col size="12"  *ngIf="isFav(offer.idProduct)"> <ion-button mode="md" expand="block" (click)="toogleFav(offer.idProduct)"> <ion-icon name="close-outline"></ion-icon> <span translate>Je ne suis plus interessé(e)</span></ion-button> </ion-col>
+            -->
+              </ion-row>
+        </ion-grid>
+  
+  
+        <!-- <ion-list *ngIf="owner.displayPhoneNumber">
+            <ion-item  lines="none">
+                <ion-badge item-start>
+                  <ion-icon name="call-outline" color="primary"></ion-icon>
+                </ion-badge>
+              <ion-label *ngIf="owner.displayPhoneNumber" class="protection">
+                  <p class="policy" translate>{{owner.phoneNumber}}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list> -->
+      
+        
+        <div class="intersection"></div>
+        <div class="section presentation">
+            <ion-grid>
+              <ion-row>
+                 <ion-col size="12">  
+                   <p translate class="ion-text-uppercase title">Description</p>
+                  <p> {{offer.description}} <br/> <a (click)="toogleVariation()" *ngIf="hideVariation" translate>voir plus</a> <p>
+                    
+                  </ion-col>
+                 
+              </ion-row>
+            </ion-grid>
+        
+            <div [hidden]=hideVariation>
+              <ion-list class="variation" mode="md">
+                  <ion-item detail lines="full"> 
+                    <p class="label"><b translate>Catégorie</b></p> <p slot="end" translate>{{category.categoryName}}</p>
+                  </ion-item>                    
+                  <ion-item lines="full"> 
+                    <p class="label"><b translate>Mis en ligne le</b></p> <p slot="end">{{offer.date | date :'dd-MMM-yy h:mm:ss a '}}</p>
+                  </ion-item>
+                  <ion-item  lines="full" > 
+                    <p class="label"><b translate>Membres intéressés</b></p>   
+                    <p slot="end" *ngIf="isFav(offer.idProduct)"> {{offer.favNumber +1}}</p>
+                    <p slot="end" *ngIf="!isFav(offer.idProduct)"> {{offer.favNumber}}</p>
+                  </ion-item>
+        
+                
+              </ion-list>
+        
+            </div>
+       
+        
+              
+          </div>
+        <div class="intersection"></div>
+        
+    </div>
+  
+    
+    
+  
+    <div class="section cross-selling">
+  
+        <ion-list class="ad">
+            <ion-item  lines="none"> 
+                <ion-icon name="location-outline"></ion-icon>
+              <p class="label"><b translate> Localisation</b></p> <p slot="end"><ion-icon name="md-more"></ion-icon>{{town.townName}}</p>
+            </ion-item> 
+            
+        </ion-list>
+        <!-- <div class="map-wrapper">
+            <div id="map_center">
+              <img src="assets/icon/location-marker.png" />
+            </div>
+            <div #map id="map"></div>
+          </div> -->
+          <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61459.233843807706!2d46.30273475137545!3d-15.6874204640524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2203fb37df3f3697%3A0xa1f591bdaf3111e0!2sMahajanga!5e0!3m2!1sen!2smg!4v1606314345105!5m2!1sen!2smg" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
+          <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41665.542411845454!2d2.449166533374282!3d49.25561870792818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e649f8f20ae9d1%3A0x40af13e81644510!2sCreil%2C%20France!5e0!3m2!1sfr!2smg!4v1606753943747!5m2!1sfr!2smg" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
+          <iframe
+            width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"
+            [src]="getMapUrl(town.townName)" allowfullscreen>
+          </iframe>
+  
+  
+        <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" mode="md">
+            <ion-segment-button value="0" checked mode="md">
+              <ion-label translate>Dérnières annonces</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="1" mode="md">
+              <ion-label translate>Articles similaires</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+  
+          <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="false">
+              <ion-slide>
+                <ion-list>
+                  <ion-grid>
+                      
+                    </ion-grid>
+                  <app-product-list class="ion-text-left" [products]="lastOffers" ></app-product-list>
+                </ion-list>
+                    
+              </ion-slide>
+  
+              <ion-slide>
+                  <app-product-list class="ion-text-left"  [products]="similarItems"></app-product-list>
+              </ion-slide>
+          </ion-slides>
+  
+          
+    </div>
+  
+  </ion-content>
+  

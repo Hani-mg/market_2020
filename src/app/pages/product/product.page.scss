@@ -1,0 +1,228 @@
+ion-toolbar ion-icon{
+    font-size:22px;
+}
+.option-bar {
+    border-top:solid var(--ion-color-medium-shade) 1px;
+}
+
+.option-bar .first-tab {
+    border-right:solid var(--ion-color-medium-shade) 1px;
+}
+
+.option-bar ion-icon {
+    font-size:25px;
+}
+
+.option-bar ion-button{
+    color: var(--ion-text-color);
+    text-transform: capitalize;
+}
+
+.text-title
+{
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--ion-color-dark) !important;
+    font-weight: 500;
+}
+.text-medium 
+{
+    font-size:12px;
+}
+.text-large
+{
+    font-size: 14px;
+}
+
+
+.option-bar ion-icon{
+    margin-right:10px;
+}
+
+
+.add-to-cart ion-icon{
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.presentation .title 
+{
+    color: var(--ion-text-color);
+}
+
+.presentation ion-list ion-item p{
+    font-size:15px;
+}
+
+.presentation ion-list ion-item .label{
+    color:var(--ion-color-dark);
+}
+
+.fix-arrow{
+
+    color: #c0c0c0ba;
+    margin-right: 18px;
+    margin-left: 5px;
+    position:relative;
+}
+
+.fix-arrow ion-icon{
+    position:absolute;
+    font-size:24px;
+    top: -2px;
+}
+
+.intersection {
+    background-color:var(--ion-color-medium-tint);
+    padding:5px;
+}
+
+.cross-selling ion-segment ion-segment-button ion-label{
+    text-transform: capitalize;
+    font-size:14px;
+}
+
+.cross-selling ion-slide ion-list {
+    width:100%;
+}
+
+.shipping ion-icon{
+    width: 100%; height: 50%;
+    border-radius: 5px;
+    /* font-size: 10px; */
+    vertical-align: text-bottom;
+}
+
+.mrelay_icon {
+    background-color: #b90546;
+}
+.chrono_icon {
+    background-color: #299cde;
+}
+.laposte_icon {
+    background-color: #ffdd01;
+}
+
+.short_description ion-label p {
+    font-size: 15px;
+    color: var(--ion-color-dark-tint);
+}
+
+ion-badge {
+    --background: linear-gradient(rgba(9,177,186,0.08), rgba(9,177,186,0.08)),#fff;
+    position: relative;
+    margin-right: 13px;
+    border-radius: 80%;
+    padding: 12px 13px 8px 13px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.policy {
+    font-weight:bold;
+    color: var(--ion-color-dark-tint);
+    font-size:15px;
+}
+.protection a {
+    text-decoration:none;
+}
+
+.cover {
+    height:50%;
+}
+
+.cover ion-slide img {
+    object-fit: cover; 
+    width:100%; 
+    height:100%;
+} 
+
+.add-to-cart ion-button {
+    height:42px;
+    margin:0;
+}
+
+.variation {
+    padding-bottom:0;
+    border-top: solid var(--ion-color-medium-shade) 1px;
+}
+
+.ad ion-img {
+    margin:auto;
+}
+.ad ion-icon {
+    font-size:24px;
+}
+
+.bundle p{
+    text-align: left;
+    margin: 0px;
+    font-size: 15px;
+}
+
+.payment_logo {
+    border: solid var( --ion-color-medium-shade) 1px;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.paypal {
+    font-size: 11px;padding: 4px 10px; margin-left:5px;
+}
+
+.price {
+    
+//   color : var(--price-color);
+    font-weight:bold;
+}
+
+.specific_price {
+    font-size:13px;
+    text-decoration: line-through;
+    margin-left: 5px;
+  }
+
+
+  #map_canvas {
+    width: 90%;
+    height: 80%;
+    border: 1px solid red;
+  }
+  
+  
+  #address {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  #map {
+    width: 100%;
+    height: 70vh;
+  }
+  
+  .map-wrapper {
+    position: relative;
+  
+    #map_center {
+      position: absolute;
+      z-index: 99;
+      height: 40px;
+      width: 40px;
+      top: 50%;
+      left: 50%;
+      margin-left: -21px;
+      margin-top: -41px;
+    }
+  }
+  ion-icon{
+    display: inline-block;
+    // font-size: 25px;s
+    vertical-align: middle;
+      font-size:19px;
+  }
+
+  .title{
+    color: var(--e-blue-color);
+    font-weight: bold;
+  }

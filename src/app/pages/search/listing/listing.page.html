@@ -1,0 +1,168 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="md">
+      <ion-buttons mode="md" slot="start">
+          <ion-back-button mode="md"></ion-back-button>
+      </ion-buttons>
+      
+      <ion-item lines="none">
+          <ion-searchbar mode="ios" translate placeholder="{{'Rechercher des articles' | translate }}"
+             [(ngModel)]="myInputSearch"
+             (keyup.enter)="onSearchFieldEnter()">
+         </ion-searchbar>
+       </ion-item>
+
+      <ion-buttons slot="end" mode="md" class="save_search">
+        <ion-icon name="bookmark-outline"></ion-icon>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+        <ion-segment mode="md" scrollable class="filters">
+                <ion-button fill="outline"  (click)="CreatePopover()"> 
+                        <ion-icon name="filter" slot="start"></ion-icon>
+                        <span translate>{{"Trier par" | translate}}</span>
+                    </ion-button>
+                <ion-button *ngIf="categorySelected"  class="activate"  > 
+                        <ion-icon name="checkmark"></ion-icon>
+                        <span translate>{{"Catégorie" | translate}} : </span>
+                        <span > {{categorySelected.name | translate}}</span>
+                        <ion-button fill="clear" icon-only   (click)="deleteCategoryFilter()" >
+                        <ion-icon class="close-icon" color="primary" button="true" name="close" ></ion-icon></ion-button>
+                    </ion-button>
+                  
+                <ion-button #town *ngIf="townSelected"  class="activate" > 
+                    <ion-icon name="checkmark"></ion-icon>
+                    <span >{{"Ville" | translate}} : </span>
+                    <span>{{townSelected.name}}</span>
+                    <ion-button fill="clear" icon-only   (click)="deleteTownFilter()" >
+                        <ion-icon class="close-icon" color="primary" button="true" name="close" ></ion-icon></ion-button>
+                </ion-button>
+              
+                <ion-button #type *ngIf="typeSelected"  class="activate"> 
+                    <ion-icon name="checkmark"></ion-icon>
+                    <span >{{"Type d'annonce" | translate}} : </span>
+                    <span>{{typeSelected.typeName | translate}}</span>
+                    <ion-button fill="clear" icon-only   (click)="deleteTypeFilter()" >
+                    <ion-icon class="close-icon" color="primary" button="true" name="close"  ></ion-icon></ion-button>
+                </ion-button>             
+                
+              </ion-segment>
+            <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+                    <ion-fab-button (click)="openCategorySelection()">
+                            <ion-icon name="albums-outline"></ion-icon>
+                    </ion-fab-button>
+            </ion-fab>
+            <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+                        <ion-fab-button (click)="openTownSelection()">
+                                <ion-icon name="location-outline"></ion-icon>
+                        </ion-fab-button>
+            </ion-fab>
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+                    <ion-fab-button (click)="openTypeSelection()">
+                            <ion-icon name="pricetags-outline"></ion-icon>
+                    </ion-fab-button>
+            </ion-fab>
+
+
+            <ion-item lines="full" button="true" mode="md" [hidden]="true">
+                    <ion-label class="label" translate>Catégorie </ion-label>
+                    <ionic-selectable #categoryList
+                      [(ngModel)]="categorySelected"
+                      [items]="categories"
+                      itemValueField="term_id"
+                      itemTextField="name"
+                      [canSearch]="true"
+                      searchPlaceholder="{{'Rechercher une catégorie' | translate }}"
+                    
+                      item-content
+                      groupValueField="parentName" 
+                      groupTextField="parentName"
+                      (onChange)="categoryChange($event)">
+                      <ng-template ionicSelectableCloseButtonTemplate>
+                            <ion-icon name="arrow-back-outline" [routerLink]="['/listing',filter, id]"></ion-icon>
+                      </ng-template>
+                      <ng-template ionicSelectableGroupTemplate let-group="group">
+                         <span translate>{{group.text}}</span> 
+                      </ng-template>
+        
+                      <ng-template ionicSelectableItemTemplate let-child="item" >
+                          <span translate>{{child.name}}</span> 
+                      </ng-template>
+        
+                      <ng-template ionicSelectableValueTemplate let-val="value">
+                          <span translate>{{val.name}}</span>
+                        </ng-template>
+        
+                      
+                    </ionic-selectable>
+            </ion-item>
+
+            <ion-item lines="full" button="true" mode="md" [hidden]="true">
+                    <ion-label class="label" translate>Ville</ion-label>
+                    <ionic-selectable #townList
+                    [(ngModel)]="townSelected"
+                      [items]="towns"
+                      itemValueField="term_id"
+                      itemTextField="name"
+                      [canSearch]="true"
+                      searchPlaceholder="{{'Rechercher une ville' | translate }}"
+                    
+                      item-content
+                      groupValueField="parentName" 
+                      groupTextField="parentName"
+                      (onChange)="townChange($event)">
+                      <ng-template ionicSelectableCloseButtonTemplate>
+                            <ion-icon name="arrow-back-outline" [routerLink]="['/listing',filter, id]"></ion-icon>
+                      </ng-template>
+                      <ng-template ionicSelectableGroupTemplate let-group="group">
+                        <span translate>{{group.text}}</span> 
+                      </ng-template>
+          
+                      <ng-template ionicSelectableItemTemplate let-child="item" >
+                          <span translate>{{child.name}}</span> 
+                      </ng-template>
+          
+                      <ng-template ionicSelectableValueTemplate let-val="value">
+                          <span translate>{{val.name}}</span>
+                        </ng-template>
+          
+                      
+                    </ionic-selectable>
+            </ion-item>
+        
+
+            <ion-item lines="full" button="true" mode="md" [hidden]="true">
+            <ionic-selectable #typeList
+            [hidden]="true"
+            [(ngModel)]="typeSelected"
+              [items]="types"
+              itemValueField="idType"
+              itemTextField="typeName"
+              [canSearch]="true"
+              searchPlaceholder="{{'Recherch un type' | translate}}"
+              (onChange)="typeChange($event)">
+              <ng-template ionicSelectableCloseButtonTemplate>
+                    <ion-icon name="arrow-back-outline" [routerLink]="['/listing',filter, id]"></ion-icon>
+              </ng-template>
+              <ng-template ionicSelectableItemTemplate let-child="item" >
+                <span translate>{{child.typeName}}</span> 
+                </ng-template>
+    
+                <ng-template ionicSelectableValueTemplate let-val="value">
+                    <span translate>{{val.typeName}}</span>
+              </ng-template>
+              
+            </ionic-selectable>
+            </ion-item>
+  
+    <ion-item lines="none">
+      <p  class="small" *ngIf="products.length > 0">{{products.length}}+ {{"Résultats" | translate}}</p>
+      <p translate *ngIf="products.length == 0">Aucun article trouvé</p>
+    </ion-item>
+
+    <app-product-list [products]="products"></app-product-list>
+
+</ion-content>

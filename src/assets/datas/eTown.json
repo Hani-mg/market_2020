@@ -1,0 +1,62 @@
+[
+	{
+		"region":{
+			"idRegion":1,
+			"regionName":"Provence-Aples-COte d'Azur"
+        },
+        
+		"towns": [
+            {
+			"idTown":1,
+			"townName":"Marseille"
+            },
+            {
+                "idTown":2,
+                "townName":"Marseille 08"
+            }
+        ] 
+    },
+    {
+		"region":{
+			"idRegion":2,
+			"regionName":"Occitanie"
+        },
+        
+		"towns": [
+            {
+			"idTown":3,
+			"townName":"Toulouse"
+            }
+        ] 
+    },
+    {
+		"region":{
+			"idRegion":3,
+			"regionName":"Normandie"
+        },
+        
+		"towns": [
+            {
+			"idTown":4,
+			"townName":"Le grand-Quevilly"
+            }
+        ] 
+    },
+    {
+		"region":{
+			"idRegion":4,
+			"regionName":"Hauts-de-france"
+        },
+        
+		"towns": [
+            {
+			"idTown":5,
+			"townName":"Creil"
+            },
+            {
+                "idTown":6,
+                "townName":"La Madeleine"
+            }
+        ] 
+    }
+] 

@@ -1,0 +1,63 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="md">
+    <ion-title translate>
+      Mon compte
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list mode="md">
+        <ion-item mode="md" detail lines="full" button="true" class="ava_item" [routerLink]="['/customer', 1]"> 
+          <ion-avatar item-start>
+                <ion-img src="https://medicality.es/wp-content/uploads/2019/05/Aibr5LR8T.jpg"></ion-img>
+          </ion-avatar>
+          <ion-label class="customer">
+              <p class="name">demo_1</p>
+              <p translate>Voir mon profil</p>
+          </ion-label>
+          
+        </ion-item>
+
+        
+
+    </ion-list>
+
+    <ion-list>
+
+        <ion-item mode="md" lines="full" detail="true" button="true" [routerLink]="['/wishlist']"> 
+            <ion-icon slot="start" src="../../assets/img/like.svg" size="small"> </ion-icon>
+            <p class="label" translate>Mes favoris</p> 
+        </ion-item>  
+        <ion-item mode="md" lines="full" detail="true" button="true" [routerLink]="['/order']"> 
+            <ion-icon slot="start" src="../../assets/img/invoice.svg" size="small"> </ion-icon>
+            <p class="label" translate>Gérer mes annonces</p> 
+        </ion-item>
+    </ion-list>
+
+
+ 
+
+    <ion-list>
+        <!-- <ion-item mode="md" lines="full" button="true"> 
+            <ion-icon slot="start" src="../../assets/img/global.svg" size="small"> </ion-icon>
+            <ion-label class="label" translate>Language</ion-label>
+            <ion-select value="{{selected}}" okText="Ok" (ionChange)="select($event)" cancelText="Cancel">
+                <ion-select-option value="en" translate>anglais</ion-select-option>
+                <ion-select-option value="fr" translate>Francais</ion-select-option>
+                <ion-select-option value="spanish" translate>Espagnol</ion-select-option>
+                <ion-select-option value="portuguese" translate>Portugais</ion-select-option>
+              </ion-select>
+        </ion-item>  -->
+
+        <ion-item mode="md" lines="full" detail="true" button="true" (click)="logout()"> 
+                <ion-icon slot="start"  name="log-out-outline" ></ion-icon>
+            <!-- <ion-icon slot="start" src="../../assets/img/info.svg" size="small"> </ion-icon> -->
+            <p class="label" translate>Se déconnecter</p> 
+        </ion-item>
+
+    </ion-list>
+
+    <!-- <p class="finfo"> version : 1.0.0</p> -->
+
+</ion-content>

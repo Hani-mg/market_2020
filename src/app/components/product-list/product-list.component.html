@@ -1,0 +1,65 @@
+<ion-grid class="product-list">
+    <ion-row class="product-item">
+       
+      
+
+      
+          <ion-col   *ngFor="let product of products; let i = index"  size="6"> 
+              <div *ngIf="product.isSold == true" class="overlay"> 
+                <!-- <ion-fab horizontal="center" vertical="center" slot="fixed">
+                <ion-fab-button color="light" color="danger" translate>
+                    vendu
+                </ion-fab-button>
+                
+              </ion-fab> -->
+            </div>
+            <ion-row class="product-top profil" >
+              <!-- <ion-col size="2"> <div class="avatar"> <img src="../../../assets/img/flat_location_logo.png" /> </div></ion-col> -->
+              <!-- <ion-col size="1"> <div class="avatar outer"> <ion-icon name="time-outline"></ion-icon></div></ion-col> -->
+              
+              <!-- <ion-col size="11"> <span class="user-name" translate>Il y a 2 semaines </span></ion-col> -->
+              <ion-col size="11">
+                <ion-icon class="icon blackText" name="time-outline"></ion-icon> 
+                <span class="text blackText" >{{ product.durationUnit | translate:{"value": product.duration } }} </span></ion-col>
+            </ion-row>
+
+            <div class="cover" [routerLink]="['/product', product.idProduct]">
+               <ion-img style="object-fit: cover; width:100%; height:100%" [src]=product.imgUrlList[0] ></ion-img>
+            </div>
+           
+            
+            <ion-row class="product-bottom" >
+              <ion-col *ngIf="product.idType != 5"  size="8"><span class="product_price text {{getProductColor(product.idType)+'Text'}}" color="purple" >{{product.price}} <span class="currency">€</span>  </span>  <span class="{{getProductColor(product.idType)+'Text'}}" > {{getProductLabel(product.idType) | translate }}</span> <br> <span  class="blackText">{{product.categoryName | translate}} </span><br> </ion-col>
+              <ion-col *ngIf="product.idType == 5" size="8"><span class="product_price text {{getProductColor(product.idType)+'Text'}}" color="purple" > <span  translate> Action humanitaire</span> </span>   <br>  </ion-col>
+              <ion-col size="4"> 
+                <span class="product_fav" (click)="toogleFav(product.idProduct)"> 
+                  
+                    <span class="fav_number text blackText" *ngIf="isFav(product.idProduct)"> {{product.favNumber +1}}</span> 
+                    <span class="fav_number text blackText" *ngIf="!isFav(product.idProduct)"> {{product.favNumber}}</span>
+                  <ion-icon *ngIf="!isFav(product.idProduct)" name="heart-outline" class="blackText"></ion-icon> 
+                  <ion-icon *ngIf="isFav(product.idProduct)" name="heart" color="danger" class="blackText"> </ion-icon>
+                </span>
+                <span class="product_fav" > 
+                    <span class="fav_number text blackText" > 2</span>
+                    <ion-icon name="camera-outline" class="blackText" [routerLink]="['/product', product.idProduct]"></ion-icon>
+                </span>
+                
+              </ion-col>
+
+            </ion-row>
+            <ion-row>
+                <div *ngIf="!hideLocation && product.idType != 5">
+                    <ion-icon class="icon blackText" name="location-outline"></ion-icon> 
+                    <span class="text blackText" translate>{{product.townName}} </span></div>
+                <!-- <div class="avatar outer"><ion-icon name="location-outline"></ion-icon> </div><span class="user-name">{{product.townName}} </span> -->
+                <ion-col class="title "  size="12" [routerLink]="['/product', product.idProduct]" [ngStyle]="{'pointer-events': product.isSold== true ? 'none' : null}"  >{{product.productName}} </ion-col>
+                
+            </ion-row>
+
+               
+
+          </ion-col>
+        
+        
+    </ion-row>
+</ion-grid>

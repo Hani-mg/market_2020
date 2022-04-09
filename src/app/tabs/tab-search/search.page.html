@@ -1,0 +1,90 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="md">
+    <ion-item lines="none">
+     <ion-searchbar mode="ios" translate placeholder=" {{ 'Rechercher des articles' | translate }}"
+        [(ngModel)]="myInput"
+        (keyup.enter)="onEnter()">
+    </ion-searchbar>
+  </ion-item>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="search">
+
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" mode="md">
+        <ion-segment-button mode="md" value="0">
+          <ion-label translate>Catégorie</ion-label>
+        </ion-segment-button>
+        <ion-segment-button mode="md" value="1">
+            <ion-label translate>Ville</ion-label>
+        </ion-segment-button>
+        <ion-segment-button mode="md"  value="2">
+            <ion-label translate>Type</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+    <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="false">
+     
+      <ion-slide>
+          <ion-list  style="width:100%;" mode="md">
+              <ion-item lines="full" button="true" mode="md" [routerLink]="['/listing','category', 0]"> 
+                <ion-icon color="primary" slot="start" src="../assets/img/list.svg" class="all"></ion-icon>
+              <p class="label" translate>Tout</p> 
+            </ion-item>  
+  
+          <div *ngFor="let category of categories">
+          <ion-item nav-clear menu-close color="primary" translate>{{category.parent}}</ion-item>
+          <ion-item nav-clear menu-close >
+              <ion-list style="width:100%;" mode="md">
+                  <ion-item class="lower-label-filter" *ngFor="let subCategory of category.categories" lines="full" detail lines="full" button="true" mode="md" [routerLink]="['/listing', 'category',subCategory.term_id]" nav-clear menu-close >
+                    {{subCategory.name | translate}}
+                  </ion-item>
+              </ion-list>
+          </ion-item>
+          </div>
+          </ion-list>
+      </ion-slide>
+
+      <ion-slide>
+          <ion-list  style="width:100%;" mode="md">
+              <ion-item lines="full" button="true" mode="md" [routerLink]="['/listing','town', 0]"> 
+                <ion-icon color="primary" slot="start" src="../assets/img/list.svg" class="all"></ion-icon>
+              <p class="label" translate>Tout</p> 
+            </ion-item>  
+  
+            <div *ngFor="let region of towns">
+          <ion-item nav-clear menu-close color="primary">{{region.parent}}</ion-item>
+          <ion-item nav-clear menu-close >
+              <ion-list style="width:100%;" mode="md">
+                  <ion-item *ngFor="let town of region.towns" lines="full" detail lines="full" button="true" mode="md" [routerLink]="['/listing', 'town',town.term_id]" nav-clear menu-close>
+                    {{town.name}}
+                  </ion-item>
+              </ion-list>
+          </ion-item>
+          </div>
+          </ion-list>
+      </ion-slide>
+      <ion-slide>
+          <ion-list style="width:100%;" mode="md">
+
+              <ion-item lines="full" button="true" mode="md" [routerLink]="['/listing','type', 0]"> 
+                  <ion-icon color="primary" slot="start" src="../assets/img/list.svg" class="all"></ion-icon>
+                <p class="label" translate>Tout</p> 
+              </ion-item>  
+    
+    
+              <ion-item [routerLink]="['/listing','type', type.idType]" detail lines="full" button="true" mode="md" *ngFor="let type of types"> 
+                  
+                  <p class="label" translate>{{type.typeName}}</p> 
+                  
+              </ion-item>  
+      
+            </ion-list>
+            
+      </ion-slide>
+    </ion-slides>
+
+
+   
+</ion-content>

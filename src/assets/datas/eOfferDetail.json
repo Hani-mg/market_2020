@@ -1,0 +1,33 @@
+{
+    "offer":
+    {
+        "idProduct":4,
+		"productName":"Lot de livre Martine",
+        "imgUrlList": ["https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_180,w_350/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f16f4e7f41e0/159533999049.jpg","https://res.cloudinary.com/dvgi0ogae/image/upload/c_pad,h_360,w_700/c_scale,g_center,l_logo_market_watermark,o_40/v1/remote_media/folder5f16f4e7f41e0/1595340001841.jpg"],
+        "description":"Je vend un lot de livre Martine en très bon état.",
+        "price":100,
+        "date":"2020-12-06 14:57:14",
+        "favNumber":12
+    },
+    "town":{
+        "idTown":5,
+        "townName":"Creil"
+    },
+    "category":{
+        "idCategory":9,
+        "categoryName":"Livres enfant"
+    },
+    "type":
+    {
+        "idType":1,
+        "typeName":"Vente"
+    },
+    "owner": {
+        "idUser":1,
+        "username":"Tatai",
+        "offerNumber":2,
+        "displayPhonenUmber": true,
+        "phoneNumber":"+33 6 79 10 60 16"
+    }
+    
+}

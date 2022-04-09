@@ -1,0 +1,36 @@
+[
+            {
+			"idTown":1,
+            "townName":"Marseille",
+            "parent":"Provence-Aples-COte d'Azur"
+            },
+            {
+                "idTown":2,
+                "townName":"Marseille 08",
+                "parent":"Provence-Aples-COte d'Azur"
+            },
+       
+            {
+			"idTown":3,
+			"townName":"Toulouse",
+            "parent":"Occitanie"
+            },
+        
+            {
+			"idTown":4,
+            "townName":"Le grand-Quevilly",
+            "parent":"Normandie"
+            },
+            {
+			"idTown":5,
+			"townName":"Creil",
+            "parent":"Hauts-de-france"
+            },
+            {
+                "idTown":6,
+                "townName":"La Madeleine",
+                "parent":"Hauts-de-france"
+            }
+        ] 
+    }
+] 

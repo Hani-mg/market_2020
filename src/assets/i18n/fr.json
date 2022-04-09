@@ -1,0 +1,24 @@
+{
+    "home":{
+        "title":"Le site des petites annonces dédiées aux parents",
+        "titleList":"Annonces récentes"
+    },
+
+    "info":{
+        "title":"Bienvenu sur market",
+        "desc1":"Trouvez la bonne affaire pour votre enfant grâce à notre nouveau site market. Siège auto, livres, trottinettes, … ",
+        "desc2":"Si vous ne vous en servez plus faites le choix de mettre votre bien sur notre site pour combler d’autres enfants."
+    },
+
+    "annonces en ligne": "{{value}} annonces en ligne",
+    "semaines":"Il y a {{value}} semaines",
+    "mois":"Il y a {{value}} mois",
+    "heures":"Il y a {{value}} heures",
+    "minutes":"Il y a {{value}}  minutes",
+    "jours":"Il y a {{value}}  jour(s)",
+    "ans":"Il y a {{value}} ans",
+    
+    "TEST DANS CODE":"FRAN9AIS"
+   
+
+}

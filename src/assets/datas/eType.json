@@ -1,0 +1,18 @@
+[
+	{
+		"idType":1,
+		"typeName":"Vente"
+    },
+    {
+		"idType":2,
+		"typeName":"Don"
+    },
+    {
+		"idType":3,
+		"typeName":"Location"
+    },
+    {
+		"idType":4,
+		"typeName":"Echange"
+	},
+ ]

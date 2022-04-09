@@ -1,0 +1,37 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+        <!-- <ion-icon  src="../../assets/img/home.svg" size="small"></ion-icon> -->
+        <ion-icon name="home-outline"></ion-icon>
+        
+      <ion-label translate>Accueil</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+        <!-- <ion-icon  src="../../assets/img/search.svg" size="small"></ion-icon> -->
+        <ion-icon name="search-outline"></ion-icon>
+      <ion-label translate>Recherche</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="CreatePopover()">
+        <!-- <ion-icon  src="../../assets/img/plus.svg" size="small"></ion-icon> -->
+        <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label translate>Poster</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="inbox">
+      <!-- <ion-icon  src="../../assets/img/envelope.svg" size="small"></ion-icon> -->
+      <ion-icon name="mail-unread-outline"></ion-icon>
+      <ion-label translate>Messages</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+        <!-- <ion-icon  src="../../assets/img/profile.svg" size="small"></ion-icon> -->
+        <ion-icon name="person-outline"></ion-icon>
+      <ion-label translate>Profil</ion-label>
+    </ion-tab-button>
+
+
+  </ion-tab-bar>
+
+</ion-tabs>

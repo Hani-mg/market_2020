@@ -1,0 +1,18 @@
+<ion-item mode="md">
+        
+    <ion-label mode="md" position="stacked" translate>Ville </ion-label>
+  <ion-input  [value]="cityName"  (input)="write_input($event)"  (ionChange)="searchTown($event,cityName)" placeholder="{{ 'Entrer un ou plusieurs caractères' | translate }}"></ion-input>
+</ion-item>
+<!-- -->
+<ion-card *ngIf="searchedTown.length != 0">
+  <!-- <ion-card-header>
+    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    <ion-card-title>Card Title</ion-card-title>
+  </ion-card-header> -->
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let aTown of searchedTown" (click)=chooseTown(aTown.place_id,aTown.description)>{{ aTown.description }}</ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
